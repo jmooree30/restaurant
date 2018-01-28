@@ -1,20 +1,8 @@
-function tab1(){
-  const tab1 = document.createElement("button")
-  tab1.innerHTML = "About us";
-  tab1.style.marginLeft = "40%";
-  return tab1;
-}
+const Tab = (name) => {
+  const tab = document.createElement("button")
+  tab.innerHTML = name
+  tab.setAttribute("style","margin:0 5px; border-radius:0; background:gray; color:white; border:none;")
+  return tab
+};
 
-function tab2(){
-  const tab2 = document.createElement("button")
-  tab2.innerHTML = "Menu";
-  return tab2;
-}
-
-function tab3(){
-  const tab3 = document.createElement("button")
-  tab3.innerHTML = "Contact";
-  return tab3;
-}
-
-export {tab1,tab2,tab3}
+export default Tab

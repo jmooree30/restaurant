@@ -69,11 +69,11 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tabs__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tabs__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__build__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__content__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__content__ = __webpack_require__(5);
 
 
 
@@ -81,28 +81,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const content = document.querySelector("#content");
-Object(__WEBPACK_IMPORTED_MODULE_2__build__["a" /* default */])([Object(__WEBPACK_IMPORTED_MODULE_1__header__["a" /* default */])(), Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["a" /* tab1 */])(), Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["b" /* tab2 */])(), Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["c" /* tab3 */])(), Object(__WEBPACK_IMPORTED_MODULE_4__content__["a" /* about */])(), Object(__WEBPACK_IMPORTED_MODULE_3__footer__["a" /* default */])()], content)
+content.setAttribute("style", "text-align:center; margin:0 auto;")
+Object(__WEBPACK_IMPORTED_MODULE_2__build__["a" /* default */])([Object(__WEBPACK_IMPORTED_MODULE_1__header__["a" /* default */])(),Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["a" /* default */])("About us"),Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["a" /* default */])("Menu"),Object(__WEBPACK_IMPORTED_MODULE_0__tabs__["a" /* default */])("Contact"), Object(__WEBPACK_IMPORTED_MODULE_4__content__["a" /* about */])(), Object(__WEBPACK_IMPORTED_MODULE_3__footer__["a" /* default */])()], content)
 
 const buttons = document.querySelectorAll("button")
-console.log(buttons)
 buttons.forEach(function(button){
   button.addEventListener("click", function(){
    const p = document.querySelector("p")
-    p.innerHTML = ""
-    if (button.innerHTML == "About us"){
-    p.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["a" /* about */])())
-    }
-    if (button.innerHTML == "Menu"){
-    p.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["c" /* menu */])())
-    }
-    if (button.innerHTML == "Contact"){
-    p.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["b" /* contact */])())
-    }
-  })
+   p.remove()
+   if (button.innerHTML == "About us"){
+    document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["a" /* about */])())
+  }
+   if (button.innerHTML == "Menu"){
+    document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["c" /* menu */])())
+  }
+   if (button.innerHTML == "Contact"){
+    document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_4__content__["b" /* contact */])())
+  }
+})
 })
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const Tab = (name) => {
+  const tab = document.createElement("button")
+  tab.innerHTML = name
+  tab.setAttribute("style","margin:0 5px; border-radius:0; background:gray; color:white; border:none;")
+  return tab
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Tab);
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,7 +130,6 @@ function header(){
 /* harmony default export */ __webpack_exports__["a"] = (header);
 
 /***/ }),
-/* 2 */,
 /* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -136,7 +149,7 @@ function build(elements,container){
 "use strict";
 function footer(){
   footer = document.createElement("footer")
-  footer.setAttribute("style", "text-align:center; position:absolute; bottom:0; width:100%; height:50px; border:1px solid black;")
+  footer.setAttribute("style", "text-align:center; position:fixed; bottom:0; width:100%; height:50px; border:1px solid black;")
   footer.innerHTML = "This is the boring page footer."
   return footer;
 }
@@ -148,57 +161,27 @@ function footer(){
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return tab1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return tab2; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return tab3; });
-function tab1(){
-  const tab1 = document.createElement("button")
-  tab1.innerHTML = "About us";
-  tab1.style.marginLeft = "40%";
-  return tab1;
-}
-
-function tab2(){
-  const tab2 = document.createElement("button")
-  tab2.innerHTML = "Menu";
-  return tab2;
-}
-
-function tab3(){
-  const tab3 = document.createElement("button")
-  tab3.innerHTML = "Contact";
-  return tab3;
-}
-
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return about; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return menu; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return contact; });
 function about(){
   const content = document.createElement("p")
-
-  content.setAttribute("style", "height:200px; width:600px; border:1px solid gray; display:block; margin: 0 auto;")
+  content.setAttribute("style", "text-align:center;height:200px; width:75%; border:1px solid gray; display:block; margin: 0 auto;")
   content.innerHTML = " This whole page was created with vanilla javacript."
   return content;
 }
 
 function menu(){
   const content = document.createElement("p")
-  content.setAttribute("style", "height:200px; width:600px; border:1px solid gray; display:block; margin: 0 auto;")
-  content.innerHTML = "Menu section"
+  content.setAttribute("style", "text-align:center; height:200px; width:75%; border:1px solid gray; display:block; margin: 0 auto;")
+  content.innerHTML = "nom nom nom"
   return content;
 }
 
 function contact(){
   const content = document.createElement("p")
-  content.setAttribute("style", "height:200px; width:600px; border:1px solid gray; display:block; margin: 0 auto;")
-  content.innerHTML = "Contact me"
+  content.setAttribute("style", "text-align:center; height:200px; width:75%; border:1px solid gray; display:block; margin: 0 auto;")
+  content.innerHTML = `<a href="https://github.com/jmooree30">Github</a>`
   return content;
 }
 
